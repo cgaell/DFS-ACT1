@@ -1,0 +1,399 @@
+
+/*Aqui importe una fuente externa que descargue en google para poder usarla dentro de mi pagina*/
+@font-face {
+    font-family: 'Inter Tight'; 
+    src: url('font/static/InterTight-Bold.ttf') format('truetype'); /*truetype significa que no cambia nada*/
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*el body es para pintar el fondo completo atras y alinearlo a toda la pantalla*/
+body {
+    background-color: #121212;
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif; /*Hincapie: sin estos, toda la pagina pierde su tipo de letra*/
+    margin: 0;
+    padding: 0;
+}
+
+/*este lo use para realizar todo el navbar (lo que dice store y asi, es para darle el formato*/
+.navbar {
+    background-color: #202020;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 70px;
+}
+/*esta clase la use para separar los dos tipos de botones dentro del nav bar, este modifica el log, store, soporte y distribuir*/
+.nav-left {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 25px;
+    height: 70px;
+}
+/*darle formato al contenedor del logo*/      
+.logo {
+    display: flex;
+    align-items: center; 
+    gap: 20px;
+    height: 70px;
+}
+/*darle formato a la imagen del logo*/
+.logo img {
+    height: 35px; 
+    width: auto;
+    background-color: transparent
+}
+/*darle formato a la palabra STORE*/
+.tienda a{   
+    height: 35px;         
+    color: #f5f5f5;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "Inter Tight", sans-serif;
+}
+
+/*Importantisimo: para quitar todo subrayado en las palabras que contengan enlaces*/
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-links { 
+    display: flex; 
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 11px; 
+    color: white;
+    display: inline-flex; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.distribute-icon{
+    margin-left: 7px;
+    color: #adadad;
+    transform: translateY(-2px);
+}
+
+.nav-links a {
+    color: white;
+    transition: all 0.2s ease;
+}
+.nav-links a:hover {
+    color: gray;
+    transform: scale(1.05);
+}
+
+
+
+.nav-right { 
+    display: flex;
+    align-items: center;
+    gap: 25px; 
+}
+
+.btn-login { 
+    font-size: 12px;
+    font-weight: 700;
+    background-color: #2a2a2a;
+    color: #adadad;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none; 
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.btn-login:hover { 
+    background-color: #3a3a3a; 
+    color: white;
+    transform: scale(1.05); 
+}
+
+.btn-download { 
+    background-color: #26bbff; 
+    color: black; 
+    padding: 8px 14px; 
+    border-radius: 8px; 
+    font-size: 12px; 
+    font-weight: 700; 
+    text-decoration: none; 
+    text-transform: uppercase; 
+    transition: all 0.2s ease;
+}
+
+.btn-download:hover { 
+    background-color: #6fc3f0;
+    transform: scale(1.05); 
+}
+
+
+.sub-nav {
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.search-bar {
+    background-color: #202020; 
+    color: #f5f5f5;
+    border: none;
+    border-radius: 25px; 
+    padding: 10px 15px 10px 45px; 
+    width: 230px;
+    font-size: 14px;
+    outline: none; 
+    transition: all 0.2s;
+}
+
+.search-bar::placeholder {
+    color: #adadad;
+}
+
+.search-bar:focus {
+    background-color: #2a2a2a;
+}
+
+.menu-discover {
+    display: flex;
+    gap: 25px;
+    color: #adadad;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.menu-discover a {
+    color: #adadad;
+    transition: all 0.2s ease;
+    
+}
+.menu-discover a:hover {
+    color: white;
+    transition: all 0.2s ease;
+    transform: scale(1.02);
+}
+
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 25px;
+    padding: 0 40px;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+
+.main-banner {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background-color: #222;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.9), transparent), url('img/genshin.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-content {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    max-width: 400px;
+}
+
+.tag { 
+    font-size: 15px; 
+    font-family: 'Noto Sans' sans-serif; 
+    font-weight: 700; 
+    margin-bottom: 10px; 
+    opacity: 0.9; 
+}
+
+.game-title { 
+    font-size: 40px; 
+    margin: 0 0 15px 0; 
+}
+
+.game-desc { 
+    font-size: 16px; 
+    color: white; 
+    line-height: 1.4; 
+    margin-bottom: 30px; 
+}
+
+.banner-buttons { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+}
+
+.btn-play { 
+    background: white; 
+    color: black; 
+    padding: 14px 35px; 
+    border-radius: 5px; 
+    font-weight: bold; 
+    text-decoration: none; 
+    text-transform: uppercase; 
+    font-size: 11px; 
+    transition: all 0.2s ease; 
+}
+
+.btn-play:hover {
+    transform: scale(1.05);
+}
+
+.btn-wishlist { 
+    border: 1px 
+    solid white; 
+    width: 42px; 
+    height: 42px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 5px; 
+    color: white; 
+    text-decoration: none; 
+    font-size: 20px; }
+
+    
+.btn-wishlist img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1); 
+    display: block;
+}
+
+.btn-wishlist:hover { 
+    background: gray;
+    transition: all 0.2s ease;
+    transform: scale(1.05);
+}
+
+
+.side-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.side-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.side-item:hover { 
+    background-color: #2a2a2a; 
+}
+
+.side-item.active { 
+    background-color: #2a2a2a; 
+}
+
+.side-thumb {
+    width: 40px;
+    height: 54px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.side-info {
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+}
+
+.game-nav {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    padding: 20px 40px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-left: 160px;
+    font-family: "Inter Tight", sans-serif;
+}
+
+.game-container {
+    display: flex;
+    gap: 25px;
+    padding: 25px 40px;
+    margin-left: 160px;
+    grid-template-columns: repeat(5,1fr);
+}
+
+.game-item {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    background-color: #181818;
+    border-radius: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.game-item:hover {
+    background-color: #1f1f1f;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    transform: translateY(-4px);
+}
+
+.game-thumb {
+    width: 100%;
+    background-color: #d3d3d3;
+}
+
+.game-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game-title-card {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 4px 0 6px 0;
+}
+.game-price{
+    font-size: 14px;
+}
+
+.game-desc-card {
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+}
+
+.game-info{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 14px 14px;
+    text-align: left;
+}
+
+@media (max-width: 1200px) {
+    .hero-container { grid-template-columns: 1fr; 
+    }
+    .side-list { display: none; 
+    }
+}
