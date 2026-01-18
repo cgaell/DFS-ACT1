@@ -352,18 +352,27 @@ a {
 
 /*formato del contenedor que incluye todos los juegos*/
 .game-container {
-    display: flex;
+    display: grid;
     gap: 25px;
     padding: 25px 40px;
     margin-left: 160px;
     grid-template-columns: repeat(5,1fr);
 }
 
+/*formato del enlace que envuelve cada juego dentro del contenedor de juegos*/
+.game-link {
+    text-decoration: none; /*para quitar el subrayado del enlace*/
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: auto; 
+}
+
 /*formato de cada juego dentro del contenedor de juegos*/
 .game-item {
     display: flex;
     flex-direction: column;
-    width: 220px;
     background-color: #181818;
     border-radius: 16px;
     cursor: pointer;
@@ -428,6 +437,7 @@ a {
     }
 }
 
+/*responsive que cuando la pantalla es muy pequena, los elementos se acomoden en columna de uno por uno*/
 @media (max-width:500px) {
     .game-container {
         flex-direction: column; 
@@ -435,7 +445,7 @@ a {
         grid-template-columns: 1fr; 
     }
 }
-
+/*responsive que cuando la pantalla llegue a esa cantidad de pixeles, el descubrir algo nuevo se acomode normal, mientras se le quitara un poco de margen*/
 @media (max-width:1700px) {
     .game-nav {
         margin-left: 10px; 
