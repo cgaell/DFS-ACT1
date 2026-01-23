@@ -1,0 +1,1 @@
+alert("¡Bienvenido a la Epic Games Store!");

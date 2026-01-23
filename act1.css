@@ -450,5 +450,23 @@ a {
     .game-nav {
         margin-left: 10px; 
     }
-
 }
+    @media screen and (max-width: 768px) {
+        .game-nav {
+            font-size: 18px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .main-banner {
+            padding: 100px 20px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .banner-content {
+            bottom: 20px;
+            left: 20px;
+            max-width: 90%;
+        }
+    }
