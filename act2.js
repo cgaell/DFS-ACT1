@@ -19,17 +19,35 @@ class Juego {
                         <h3>${this.nombre}</h3>
                     </div>
                     <div class="status-row">
-                        <span class="status-text">Actualizacion en espera</span>
+                        <span class="status-text label-status">Actualizacion en espera</span>
                     </div>
                 </div>
             </div>
             <div class="card-controls">
+                <button class="control-btn btn-toggle">▶</button>
                 <button class="control-btn btn-close">X</button>
                 <button class="control-btn">...</button>
             </div>
         `;
 
+        nuevaTarjeta.querySelector('.btn-close').addEventListener('click', () => this.eliminar());
+
+        nuevaTarjeta.querySelector('.btn-toggle').addEventListener('click', () => this.cambiarEstado());
+
         return nuevaTarjeta;
+    }
+
+    cambiarEstado() {
+        const label = this.elemento.querySelector('.label-status');
+        const boton = this.elemento.querySelector('.btn-toggle');
+
+        if (label.innerText === "Actualizacion en espera" || label.innerText === "Pausado") {
+            label.innerText = "Descargando...";
+            boton.innerText = "⏸";
+        } else {
+            label.innerText = "Pausado";
+            boton.innerText = "▶";
+        }
     }
 
     eliminar() {
