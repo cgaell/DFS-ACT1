@@ -1,1 +1,1 @@
-alert("¡Bienvenido a la Epic Games Store!");
+alert("BIENVENIDO AL GESTOR DE DESCARGAS DE EPIC GAMES!");
