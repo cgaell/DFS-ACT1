@@ -470,3 +470,37 @@ a {
             max-width: 90%;
         }
     }
+
+/*formato del contenedor del boton de descargas*/
+.contenedor-boton {
+    display: flex;
+    padding: 20px 40px;
+    justify-content: right;
+    margin-top: 30px;
+}
+
+.downloads {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1f1f1f;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: scale 0.2s ease;
+    transition: background 0.3s;
+    padding: 0;
+}
+
+.downloads:hover {
+    background-color: #181818;
+    transform: scale(1.1);
+    transition: 0.4s ease;
+}
+
+.downloads img {
+    width: 25px;
+    height: auto;
+}
