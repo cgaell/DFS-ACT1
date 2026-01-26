@@ -78,9 +78,6 @@ class Juego {
                 this.actualizarVisualBarra();
             } else {
                 this.detenerProgreso();
-                const label = this.elemento.querySelector('.label-status');
-                label.innerText = "Descarga completa";
-                label.style.color = "green";
             }
         }, 400);
     }
