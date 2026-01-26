@@ -78,10 +78,11 @@ class Juego {
                 this.actualizarVisualBarra();
             } else {
                 this.detenerProgreso();
-                this.elemento.querySelector('.label-status').innerText = "Completado";
-                this.elemento.querySelector('.label-status').style.color = "#013220";
+                const label = this.elemento.querySelector('.label-status');
+                label.innerText = "Descarga completa";
+                label.style.color = "green";
             }
-        }, 500);
+        }, 400);
     }
 
 
@@ -123,7 +124,7 @@ class GestorDescargas {
             btnNavEditar.addEventListener('click', () => {
                 const tarjetas = this.contenedor.querySelectorAll('.game-card');
                 if (tarjetas.length > 0) {
-                    // Accionamos el click del botón interno de la última tarjeta
+                    
                     tarjetas[tarjetas.length - 1].querySelector('.btn-editar').click();
                 }
             });

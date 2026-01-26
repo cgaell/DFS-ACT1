@@ -145,6 +145,8 @@ body {
     margin-top: 10px;
     margin-right: 10px;
     overflow: hidden;
+    display: block;
+    transition: opacity 0.3s ease;
 }
 
 
