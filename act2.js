@@ -3,6 +3,8 @@ class Juego {
     constructor(nombre, imagen) {
         this.nombre = nombre;
         this.imagen = imagen;
+        this.progreso = 0;
+        this.intervalo = null;
         this.elemento = this.crearElemento();
     }
 
@@ -19,7 +21,11 @@ class Juego {
                         <h3 class="title-text">${this.nombre}</h3>
                     </div>
                     <div class="status-row">
-                        <span class="status-text label-status">Actualizacion en espera</span>
+                        <span class="status-text label-status">Actualización en espera</span>
+                        <span class="percentage-text">0%</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
                     </div>
                 </div>
             </div>
@@ -54,14 +60,48 @@ class Juego {
         if (label.innerText === "Actualizacion en espera" || label.innerText === "Pausado") {
             label.innerText = "Descargando...";
             boton.innerText = "⏸";
+            this.iniciarProgreso();
         } else {
             label.innerText = "Pausado";
             boton.innerText = "▶";
+            this.pausarProgreso();
         }
     }
 
+    iniciarProgreso() {
+        if (this.intervalo) return; 
+
+        this.intervalo = setInterval(() => {
+            if (this.progreso < 100) {
+                this.progreso += Math.random() * 2; 
+                if (this.progreso > 100) this.progreso = 100;
+                this.actualizarVisualBarra();
+            } else {
+                this.detenerProgreso();
+                this.elemento.querySelector('.label-status').innerText = "Completado";
+                this.elemento.querySelector('.label-status').style.color = "#013220";
+            }
+        }, 500);
+    }
+
+
+    pausarProgreso() {
+        clearInterval(this.intervalo);
+        this.intervalo = null;
+    }
+
+    actualizarVisualBarra() {
+        const barra = this.elemento.querySelector('.progress-bar');
+        const porcentaje = this.elemento.querySelector('.percentage-text');
+        
+        barra.style.width = `${this.progreso}%`;
+        porcentaje.innerText = `${Math.floor(this.progreso)}%`;
+    }
+
+
     eliminar() {
         this.elemento.remove();
+        this.pausarProgreso();
     }
 }
 
