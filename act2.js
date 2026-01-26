@@ -12,11 +12,11 @@ class Juego {
         
         nuevaTarjeta.innerHTML = `<div class="card-body">
                 <div class="poster-container">
-                    <img src="${this.imagen}" alt="${this.nombre}" class="poster">
+                    <img src="${this.imagen}" alt="${this.nombre}" class="poster img-poster"/>
                 </div>
                 <div class="game-details">
                     <div class="game-header">
-                        <h3>${this.nombre}</h3>
+                        <h3 class="title-text">${this.nombre}</h3>
                     </div>
                     <div class="status-row">
                         <span class="status-text label-status">Actualizacion en espera</span>
@@ -34,8 +34,18 @@ class Juego {
 
         nuevaTarjeta.querySelector('.btn-toggle').addEventListener('click', () => this.cambiarEstado());
 
+
         return nuevaTarjeta;
     }
+
+        actualizarDatos(nuevoNombre, nuevaImagen) {
+            this.nombre = nuevoNombre;
+            this.imagen = nuevaImagen;
+            this.elemento.querySelector('.title-text').innerText = this.nombre;
+            const img = this.elemento.querySelector('.img-poster');
+            img.src = this.imagen;
+            img.alt = this.nombre;
+        }
 
     cambiarEstado() {
         const label = this.elemento.querySelector('.label-status');
@@ -58,6 +68,7 @@ class Juego {
 class GestorDescargas {
     constructor(contenedorId) {
         this.contenedor = document.getElementById(contenedorId);
+        this.juegos = [];
         this.EmpezarEventos();
         alert("BIENVENIDO AL GESTOR DE DESCARGAS DE EPIC GAMES!");
     }
@@ -65,6 +76,18 @@ class GestorDescargas {
     EmpezarEventos() {
         document.getElementById('btn-agregar').addEventListener('click', () => this.agregarDescarga());
         document.getElementById('btn-eliminar').addEventListener('click', () => this.eliminarDescarga());
+        document.getElementById('btn-editar').addEventListener('click', () => this.editarJuego());
+
+        const btnNavEditar = document.getElementById('btn-editar');
+        if(btnNavEditar) {
+            btnNavEditar.addEventListener('click', () => {
+                const tarjetas = this.contenedor.querySelectorAll('.game-card');
+                if (tarjetas.length > 0) {
+                    // Accionamos el click del botón interno de la última tarjeta
+                    tarjetas[tarjetas.length - 1].querySelector('.btn-editar').click();
+                }
+            });
+        }
     }
 
     agregarDescarga() {
@@ -76,6 +99,10 @@ class GestorDescargas {
         } else {
             alert("Nombre del juego o URL de la imagen no proporcionados.");
         }
+    }
+    
+    editarJuego() {
+        alert("Proximamente podras editar la ultima descarga agregada.");
     }
 
     eliminarDescarga() {
