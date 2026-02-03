@@ -129,6 +129,19 @@ body {
     background-color: #909090;
 }
 
+
+.filter-btn.on-hold:hover {
+    background-color: #F39C12;
+}
+
+.filter-btn.in-progress:hover {
+    background-color: blue;
+}
+
+.filter-btn.completed:hover {
+    background-color: green;
+}
+
 /* Task List */
 #taskList {
     display: flex;
